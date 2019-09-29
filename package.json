@@ -15,7 +15,9 @@
     "load balancing",
     "monitor"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "rc": "^1.2.8"
+  },
   "devDependencies": {
     "jshint": "^2.10.2",
     "tape": "~4"
