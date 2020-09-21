@@ -16,6 +16,8 @@
     "monitor"
   ],
   "dependencies": {
+    "fetchagent": "^2.0.0",
+    "node-fetch": "^2.6.1",
     "rc": "^1.2.8"
   },
   "devDependencies": {
