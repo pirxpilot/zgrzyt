@@ -18,6 +18,7 @@
   "dependencies": {
     "fetchagent": "^2.0.0",
     "node-fetch": "^2.6.1",
+    "parse-domain": "^3.0.2",
     "rc": "^1.2.8"
   },
   "devDependencies": {

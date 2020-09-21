@@ -1,5 +1,4 @@
 const conf = require('rc')('zgrzyt', {
-  domain: '',
   services: [],
   api: {
     timeout: 250
@@ -7,8 +6,8 @@ const conf = require('rc')('zgrzyt', {
 });
 
 
-if (!conf.domain) {
-  console.error('Domain needs to be specified');
+if (!conf.api.url) {
+  console.error('API URL needs to be specified');
 }
 
 const zgrzyt = require('./lib/zgrzyt');
