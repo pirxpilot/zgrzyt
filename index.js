@@ -10,5 +10,9 @@ if (!conf.api.url) {
   console.error('API URL needs to be specified');
 }
 
-const zgrzyt = require('./lib/zgrzyt');
-zgrzyt(conf);
+try {
+  const zgrzyt = require('./lib/zgrzyt');
+  zgrzyt(conf);
+} catch(e) {
+  console.error('Errors:', e);
+}
