@@ -1,9 +1,12 @@
 const test = require('tape');
+const ini = require('ini');
+const { readFileSync } = require('fs');
+
 const prepareConfig = require('../lib/config');
 
 test('config should require cloudflare.token', function (t) {
   const apis = prepareConfig({});
-  t.equal(undefined, apis, 'Invalid config needs to render empty APIs list');
+  t.notOk(apis, 'Invalid config needs to render empty APIs list');
   t.end();
 });
 
@@ -11,7 +14,7 @@ test('config should require api.url', function (t) {
   const apis = prepareConfig({
     cloudflare: { token: 'abc' }
   });
-  t.equal(undefined, apis, 'Invalid config needs to render empty APIs list');
+  t.equal(0, apis.length, 'Invalid config needs to render empty APIs list');
   t.end();
 });
 
@@ -33,6 +36,41 @@ test('valid.config should return api list', function (t) {
     zone: 'example.net',
   });
   t.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
+
+  t.end();
+});
+
+test('multi config', function (t) {
+  const iniStr = readFileSync(`${__dirname}/fixtures/multi.ini`, 'utf-8');
+  const conf = ini.parse(iniStr);
+
+  const apis = prepareConfig(conf);
+
+  t.equal(apis.length, 3, '3 APIs configured');
+  const [ d, one, two ] = apis;
+  t.deepEqual(d.servers, [ 'a.example.com', 'b.example.com' ]);
+  t.deepEqual(d.api, {
+    url: 'https://api.example.org',
+    timeout: 350,
+    domain: 'api.example.org',
+    zone: 'example.org'
+  });
+
+  t.deepEqual(one.servers, ['a.example.com', 'b.example.com']);
+  t.deepEqual(one.api, {
+    url: 'https://one.example.com/status',
+    timeout: 250,
+    domain: 'one.example.com',
+    zone: 'example.com'
+  });
+
+  t.deepEqual(two.servers, ['a.example.net', 'b.example.net']);
+  t.deepEqual(two.api, {
+    url: 'https://two.example.net',
+    timeout: 250,
+    domain: 'example.net',
+    zone: 'example.net'
+  });
 
   t.end();
 });

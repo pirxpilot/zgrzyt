@@ -52,6 +52,29 @@ domain=example.net ; optional domain for which zgrzyt will update DNS record
 
 If `api.domain` is not specified its value is deduces from `api.url`.
 
+### Multiple checks
+
+It's possible to check multiple domains from a single config
+
+```ini
+[api.one]
+url=https://one.example.net/status
+
+[api.two]
+url=https://two.example.net/status
+```
+
+Each API can specify its own list of servers (presumably different from the default list of servers) using cluster parameter.
+
+```ini
+[cluster.europe]
+servers[]=berlin.example.com
+servers[]=warsaw.example.com
+
+[api.one]
+url=https://one.example.net/status
+cluster=europe
+```
 
 ## License
 
