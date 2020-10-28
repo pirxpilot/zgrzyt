@@ -45,10 +45,12 @@ token=XXXXXX
 
 [api]
 ; API URL to be tested on each of the servers
-url=https://trips.furkot.com
-timeout=250 ; in millis
-
+url=https://api.example.net/status
+timeout=250 ; optional in millis
+domain=example.net ; optional domain for which zgrzyt will update DNS record
 ```
+
+If `api.domain` is not specified its value is deduces from `api.url`.
 
 
 ## License
