@@ -1,4 +1,12 @@
 
+1.2.0 / 2020-10-29
+==================
+
+ * make zgrzyt less verbose
+ * add support for multiple API in one config
+ * allow for specifying API domain
+ * add User-Agent header to HTTP checks
+
 1.1.0 / 2020-10-25
 ==================
 
