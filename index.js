@@ -1,18 +1,15 @@
-const conf = require('rc')('zgrzyt', {
-  services: [],
-  api: {
-    timeout: 250
-  }
-});
+const conf = require('rc')('zgrzyt');
+const prepareConfig = require('./lib/config');
+const zgrzyt = require('./lib/zgrzyt');
 
+const apis = prepareConfig(conf);
 
-if (!conf.api.url) {
-  console.error('API URL needs to be specified');
+if (!apis) {
+  console.error('Invalid configuration - no APIs to check');
 }
 
-try {
-  const zgrzyt = require('./lib/zgrzyt');
-  zgrzyt(conf);
-} catch(e) {
-  console.error('Errors:', e);
-}
+Promise
+  .all(apis.map(zgrzyt))
+  .catch(e => {
+    console.error('Errors:', e);
+  });
