@@ -34,6 +34,7 @@ test('valid.config should return api list', function (t) {
     timeout: 250,
     domain: 'api.example.net',
     zone: 'example.net',
+    method: 'HEAD'
   });
   t.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
 
@@ -53,7 +54,8 @@ test('multi config', function (t) {
     url: 'https://api.example.org',
     timeout: 350,
     domain: 'api.example.org',
-    zone: 'example.org'
+    zone: 'example.org',
+    method: 'HEAD'
   });
 
   t.deepEqual(one.servers, ['a.example.com', 'b.example.com']);
@@ -61,7 +63,8 @@ test('multi config', function (t) {
     url: 'https://one.example.com/status',
     timeout: 250,
     domain: 'one.example.com',
-    zone: 'example.com'
+    zone: 'example.com',
+    method: 'GET'
   });
 
   t.deepEqual(two.servers, ['a.example.net', 'b.example.net']);
@@ -69,7 +72,8 @@ test('multi config', function (t) {
     url: 'https://two.example.net',
     timeout: 250,
     domain: 'example.net',
-    zone: 'example.net'
+    zone: 'example.net',
+    method: 'HEAD'
   });
 
   t.end();

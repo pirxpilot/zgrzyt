@@ -46,11 +46,13 @@ token=XXXXXX
 [api]
 ; API URL to be tested on each of the servers
 url=https://api.example.net/status
-timeout=250 ; optional in millis
-domain=example.net ; optional domain for which zgrzyt will update DNS record
+timeout=250        ; optional, in millis
+domain=example.net ; optional, domain for which zgrzyt will update DNS record
+method=HEAD        ; optional, HTTP method used by zgrzyt
 ```
 
-If `api.domain` is not specified its value is deduces from `api.url`.
+If `api.domain` is not specified its value is deduced from `api.url`.
+If `api.method` is not specified zgrzyt will send `HEAD` requests to poll the servers. `api.method` can be set to `GET` if needed.
 
 ### Multiple checks
 
