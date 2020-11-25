@@ -1,6 +1,6 @@
 {
   "name": "zgrzyt",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Poor man's load balancing DNS switcher.",
   "author": {
     "name": "Damian Krzeminski",
