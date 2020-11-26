@@ -1,4 +1,11 @@
 
+1.3.1 / 2020-11-26
+==================
+
+ * better formating for reports
+ * report results grouped by action
+ * add debug module
+
 1.3.0 / 2020-11-25
 ==================
 
