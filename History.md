@@ -1,4 +1,10 @@
 
+1.3.2 / 2020-11-28
+==================
+
+ * throttle request to Cloudflare API
+ * fix displaying error massages for CloudFlare API
+
 1.3.1 / 2020-11-26
 ==================
 
