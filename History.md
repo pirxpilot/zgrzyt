@@ -1,4 +1,10 @@
 
+1.3.3 / 2020-11-28
+==================
+
+ * optimize requests for zone data
+ * cache DNS requests for servers
+
 1.3.2 / 2020-11-28
 ==================
 
