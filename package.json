@@ -18,10 +18,8 @@
   ],
   "dependencies": {
     "debug": "~4",
-    "fetchagent": "^2.0.0",
-    "node-fetch": "^2.6.1",
+    "got": "^11.8.0",
     "parse-domain": "^3.0.2",
-    "promise-ratelimit": "^0.0.3",
     "rc": "^1.2.8",
     "sprintfjs": "^1.2.16"
   },
