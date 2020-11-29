@@ -1,4 +1,10 @@
 
+1.3.4 / 2020-11-29
+==================
+
+ * add support for large (> 50 zones) accounts
+ * use `got`  instead of `fetch` for Cloudflare API
+
 1.3.3 / 2020-11-28
 ==================
 
