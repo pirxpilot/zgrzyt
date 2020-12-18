@@ -1,4 +1,11 @@
 
+1.4.0 / 2020-12-18
+==================
+
+ * configure retry/timeout/force for each API
+ * add retry functionality to checkApi
+ * simplify displaying results
+
 1.3.5 / 2020-12-09
 ==================
 
