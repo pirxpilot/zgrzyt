@@ -17,6 +17,6 @@ main(apis).catch(e => {
 async function main(apis) {
   const results = await Promise.all(apis.map(zgrzyt));
   const { exitCode, lines }  = report(results);
-  lines.forEach(l => console.log(l));
+  console.log(lines.join('\n'));
   process.exit(exitCode);
 }
