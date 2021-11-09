@@ -1,4 +1,11 @@
 
+1.5.0 / 2021-11-09
+==================
+
+ * add support for repair option
+ * persist servers health
+ * upgrade parse-domain to ~4
+
 1.4.0 / 2020-12-18
 ==================
 
