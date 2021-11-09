@@ -1,7 +1,5 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][deps-dev-image]][deps-dev-url]
+[![Build Status][build-image]][build-url]
 
 # zgrzyt
 
@@ -89,11 +87,5 @@ MIT © [Damian Krzeminski](https://pirxpilot.me)
 [npm-image]: https://img.shields.io/npm/v/zgrzyt.svg
 [npm-url]: https://npmjs.org/package/zgrzyt
 
-[travis-url]: https://travis-ci.com/pirxpilot/zgrzyt
-[travis-image]: https://img.shields.io/travis/com/pirxpilot/zgrzyt.svg
-
-[deps-image]: https://img.shields.io/david/pirxpilot/zgrzyt.svg
-[deps-url]: https://david-dm.org/pirxpilot/zgrzyt
-
-[deps-dev-image]: https://img.shields.io/david/dev/pirxpilot/zgrzyt.svg
-[deps-dev-url]: https://david-dm.org/pirxpilot/zgrzyt?type=dev
+[build-url]: https://github.com/pirxpilot/zgrzyt/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/workflow/status/pirxpilot/zgrzyt/check
