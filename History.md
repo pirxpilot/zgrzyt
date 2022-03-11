@@ -1,4 +1,10 @@
 
+1.6.0 / 2022-03-11
+==================
+
+ * add support for adding headers
+ * revert the report order
+
 1.5.0 / 2021-11-09
 ==================
 
