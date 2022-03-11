@@ -35,7 +35,8 @@ test('valid.config should return api list', function (t) {
     retry: 2,
     domain: 'api.example.net',
     zone: 'example.net',
-    method: 'HEAD'
+    method: 'HEAD',
+    headers: {}
   });
   t.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
 
@@ -57,7 +58,8 @@ test('multi config', function (t) {
     retry: 3,
     domain: 'api.example.org',
     zone: 'example.org',
-    method: 'HEAD'
+    method: 'HEAD',
+    headers: {}
   });
   t.notOk(d.force);
 
@@ -68,7 +70,10 @@ test('multi config', function (t) {
     retry: 4,
     domain: 'one.example.com',
     zone: 'example.com',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'x-key': 'abc123'
+    }
   });
   t.notOk(one.force);
 
@@ -79,7 +84,11 @@ test('multi config', function (t) {
     retry: 3,
     domain: 'example.net',
     zone: 'example.net',
-    method: 'HEAD'
+    method: 'HEAD',
+    headers: {
+      referer: 'example.com',
+      origin: 'example.net'
+    }
   });
   t.equal(two.force, true);
 
