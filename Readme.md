@@ -84,8 +84,8 @@ MIT © [Damian Krzeminski](https://pirxpilot.me)
 [rc]: https://www.npmjs.com/package/rc
 [Cloudflare DNS]: https://www.cloudflare.com/dns/
 
-[npm-image]: https://img.shields.io/npm/v/zgrzyt.svg
+[npm-image]: https://img.shields.io/npm/v/zgrzyt
 [npm-url]: https://npmjs.org/package/zgrzyt
 
 [build-url]: https://github.com/pirxpilot/zgrzyt/actions/workflows/check.yaml
-[build-image]: https://img.shields.io/github/workflow/status/pirxpilot/zgrzyt/check
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/zgrzyt/check.yaml?branch=main
