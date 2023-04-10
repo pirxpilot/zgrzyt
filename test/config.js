@@ -1,24 +1,23 @@
-const test = require('tape');
+const test = require('node:test');
+const assert = require('node:assert/strict');
 const ini = require('ini');
 const { readFileSync } = require('fs');
 
 const prepareConfig = require('../lib/config');
 
-test('config should require cloudflare.token', function (t) {
+test('config should require cloudflare.token', () => {
   const apis = prepareConfig({});
-  t.notOk(apis, 'Invalid config needs to render empty APIs list');
-  t.end();
+  assert.ok(!apis, 'Invalid config needs to render empty APIs list');
 });
 
-test('config should require api.url', function (t) {
+test('config should require api.url', () => {
   const apis = prepareConfig({
     cloudflare: { token: 'abc' }
   });
-  t.equal(0, apis.length, 'Invalid config needs to render empty APIs list');
-  t.end();
+  assert.equal(0, apis.length, 'Invalid config needs to render empty APIs list');
 });
 
-test('valid.config should return api list', function (t) {
+test('valid.config should return api list', () => {
   const apis = prepareConfig({
     cloudflare: { token: 'abc' },
     servers: [ 'alpha.example.com', 'beta.example.com' ],
@@ -26,10 +25,10 @@ test('valid.config should return api list', function (t) {
       url: 'https://api.example.net/status',
     }
   });
-  t.equal(apis.length, 1, 'single API configured');
+  assert.equal(apis.length, 1, 'single API configured');
 
   const [ api ] = apis;
-  t.deepEqual(api.api, {
+  assert.deepEqual(api.api, {
     url: 'https://api.example.net/status',
     timeout: 250,
     retry: 2,
@@ -38,21 +37,20 @@ test('valid.config should return api list', function (t) {
     method: 'HEAD',
     headers: {}
   });
-  t.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
+  assert.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
 
-  t.end();
 });
 
-test('multi config', function (t) {
+test('multi config', () => {
   const iniStr = readFileSync(`${__dirname}/fixtures/multi.ini`, 'utf-8');
   const conf = ini.parse(iniStr);
 
   const apis = prepareConfig(conf);
 
-  t.equal(apis.length, 3, '3 APIs configured');
+  assert.equal(apis.length, 3, '3 APIs configured');
   const [ d, one, two ] = apis;
-  t.deepEqual(d.servers, [ 'a.example.com', 'b.example.com' ]);
-  t.deepEqual(d.api, {
+  assert.deepEqual(d.servers, [ 'a.example.com', 'b.example.com' ]);
+  assert.deepEqual(d.api, {
     url: 'https://api.example.org',
     timeout: 350,
     retry: 3,
@@ -61,10 +59,10 @@ test('multi config', function (t) {
     method: 'HEAD',
     headers: {}
   });
-  t.notOk(d.force);
+  assert.ok(!d.force);
 
-  t.deepEqual(one.servers, ['a.example.com', 'b.example.com']);
-  t.deepEqual(one.api, {
+  assert.deepEqual(one.servers, ['a.example.com', 'b.example.com']);
+  assert.deepEqual(one.api, {
     url: 'https://one.example.com/status',
     timeout: 250,
     retry: 4,
@@ -75,10 +73,10 @@ test('multi config', function (t) {
       'x-key': 'abc123'
     }
   });
-  t.notOk(one.force);
+  assert.ok(!one.force);
 
-  t.deepEqual(two.servers, ['a.example.net', 'b.example.net']);
-  t.deepEqual(two.api, {
+  assert.deepEqual(two.servers, ['a.example.net', 'b.example.net']);
+  assert.deepEqual(two.api, {
     url: 'https://two.example.net',
     timeout: 250,
     retry: 3,
@@ -90,7 +88,6 @@ test('multi config', function (t) {
       origin: 'example.net'
     }
   });
-  t.equal(two.force, true);
+  assert.equal(two.force, true);
 
-  t.end();
 });
