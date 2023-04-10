@@ -2,6 +2,7 @@
   "name": "zgrzyt",
   "version": "1.6.1",
   "description": "Poor man's load balancing DNS switcher.",
+  "type": "module",
   "author": {
     "name": "Damian Krzeminski",
     "email": "pirxpilot@furkot.com",
@@ -16,6 +17,9 @@
     "load balancing",
     "monitor"
   ],
+  "engines": {
+    "node": ">= 16"
+  },
   "dependencies": {
     "debug": "~4",
     "got": "^11.8.0",
