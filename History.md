@@ -1,4 +1,10 @@
 
+1.6.1 / 2023-04-10
+==================
+
+ * replace tape with node:test
+ * fix crash when no good server was found
+
 1.6.0 / 2022-03-11
 ==================
 
