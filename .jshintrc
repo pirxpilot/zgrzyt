@@ -10,5 +10,6 @@
   "sub": true,
   "undef": true,
   "unused": true,
-  "esversion": 9
+  "module": true,
+  "esversion": 11
 }

@@ -1,9 +1,9 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const ini = require('ini');
-const { readFileSync } = require('fs');
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
-const prepareConfig = require('../lib/config');
+import ini from 'ini';
+import prepareConfig from '../lib/config.js';
 
 test('config should require cloudflare.token', () => {
   const apis = prepareConfig({});
@@ -20,14 +20,14 @@ test('config should require api.url', () => {
 test('valid.config should return api list', () => {
   const apis = prepareConfig({
     cloudflare: { token: 'abc' },
-    servers: [ 'alpha.example.com', 'beta.example.com' ],
+    servers: ['alpha.example.com', 'beta.example.com'],
     api: {
       url: 'https://api.example.net/status',
     }
   });
   assert.equal(apis.length, 1, 'single API configured');
 
-  const [ api ] = apis;
+  const [api] = apis;
   assert.deepEqual(api.api, {
     url: 'https://api.example.net/status',
     timeout: 250,
@@ -42,14 +42,14 @@ test('valid.config should return api list', () => {
 });
 
 test('multi config', () => {
-  const iniStr = readFileSync(`${__dirname}/fixtures/multi.ini`, 'utf-8');
+  const iniStr = readFileSync(new URL('fixtures/multi.ini', import.meta.url), 'utf-8');
   const conf = ini.parse(iniStr);
 
   const apis = prepareConfig(conf);
 
   assert.equal(apis.length, 3, '3 APIs configured');
-  const [ d, one, two ] = apis;
-  assert.deepEqual(d.servers, [ 'a.example.com', 'b.example.com' ]);
+  const [d, one, two] = apis;
+  assert.deepEqual(d.servers, ['a.example.com', 'b.example.com']);
   assert.deepEqual(d.api, {
     url: 'https://api.example.org',
     timeout: 350,
