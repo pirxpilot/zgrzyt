@@ -9,7 +9,7 @@
     "url": "https://pirxpilot.me"
   },
   "repository": "pirxpilot/zgrzyt",
-  "bin": "./bin/zgrzyt",
+  "bin": "./bin/zgrzyt.cjs",
   "license": "MIT",
   "keywords": [
     "zgrzyt",
