@@ -8,8 +8,13 @@
     "email": "pirxpilot@furkot.com",
     "url": "https://pirxpilot.me"
   },
-  "repository": "pirxpilot/zgrzyt",
-  "bin": "./bin/zgrzyt.cjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pirxpilot/zgrzyt.git"
+  },
+  "bin": {
+    "zgrzyt": "bin/zgrzyt.cjs"
+  },
   "license": "MIT",
   "keywords": [
     "zgrzyt",
