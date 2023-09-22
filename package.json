@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "debug": "~4",
-    "got": "~12",
+    "got": "~13",
     "parse-domain": "~7",
     "rc": "^1.2.8",
     "sprintfjs": "^1.2.16"
