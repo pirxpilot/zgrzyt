@@ -33,7 +33,7 @@
     "sprintfjs": "^1.2.16"
   },
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "@pirxpilot/jshint": "^3.0.0"
   },
   "scripts": {
     "test": "make check"
