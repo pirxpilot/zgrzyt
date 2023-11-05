@@ -1,4 +1,10 @@
 
+2.1.0 / 2023-11-05
+==================
+
+ * improve behaviour in case of API failures
+ * make cloudflate API timeout configurable
+
 2.0.3 / 2023-11-02
 ==================
 
