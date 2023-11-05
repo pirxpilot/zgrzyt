@@ -17,8 +17,17 @@ main(apis).catch(e => {
 });
 
 async function main(apis) {
-  const results = await Promise.all(apis.map(zgrzyt));
-  const { exitCode, lines } = report(results);
+  const promises = await Promise.allSettled(apis.map(zgrzyt));
+  const results = [];
+  const errors = [];
+  promises.forEach(p => {
+    if (p.status === 'fulfilled') {
+      results.push(p.value);
+    } else {
+      errors.push(p.reason);
+    }
+  });
+  const { exitCode, lines } = report(results, errors);
   console.log(lines.join('\n'));
   await onExit();
   process.exit(exitCode);
