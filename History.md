@@ -1,4 +1,9 @@
 
+2.1.1 / 2024-01-03
+==================
+
+ * coerce `retry` and `timeout` before passing them to `got`
+
 2.1.0 / 2023-11-05
 ==================
 
