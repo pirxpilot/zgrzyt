@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "debug": "~4",
-    "got": "~13",
-    "parse-domain": "~7",
+    "got": "~14",
+    "parse-domain": "~8",
     "rc": "^1.2.8",
     "sprintfjs": "^1.2.16"
   },
