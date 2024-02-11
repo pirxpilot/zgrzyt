@@ -1,4 +1,10 @@
 
+2.2.0 / 2024-02-11
+==================
+
+ * add support for ipv4|6 config
+ * check both IPv4 and IPv6 connectivity
+
 2.1.1 / 2024-01-03
 ==================
 
