@@ -36,6 +36,7 @@ zgrzyt --force
 ; list of potential servers configured for this domain CNAME record
 servers[]=alfa.example.net
 servers[]=beta.example.net
+ipv6=true          ; by default ipv4 is true and ipv6 is false
 
 [cloudflare]
 ; cloudflare API token
@@ -51,7 +52,7 @@ method=HEAD        ; optional, HTTP method used by zgrzyt
 ```
 
 If `api.domain` is not specified its value is deduced from `api.url`.
-If `api.method` is not specified zgrzyt will send `HEAD` requests to poll the servers. `api.method` can be set to `GET` if needed. `retry` and `timeout` can be either configured globally or separately for each API.
+If `api.method` is not specified zgrzyt will send `HEAD` requests to poll the servers. `api.method` can be set to `GET` if needed. `retry`, `timeout`, `ipv4`, and `ipv6` can be either configured globally or separately for each API.
 
 ### Multiple checks
 
