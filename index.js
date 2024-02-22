@@ -1,8 +1,8 @@
 import rc from 'rc';
 import prepareConfig from './lib/config.js';
-import { zgrzyt } from './lib/zgrzyt.js';
 import { report } from './lib/report.js';
 import { onExit } from './lib/state.js';
+import { zgrzyt } from './lib/zgrzyt.js';
 
 const conf = rc('zgrzyt');
 const apis = prepareConfig(conf);

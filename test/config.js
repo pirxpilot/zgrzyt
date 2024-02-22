@@ -1,6 +1,6 @@
-import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import test from 'node:test';
 
 import ini from 'ini';
 import prepareConfig from '../lib/config.js';
@@ -22,7 +22,7 @@ test('valid.config should return api list', () => {
     cloudflare: { token: 'abc' },
     servers: ['alpha.example.com', 'beta.example.com'],
     api: {
-      url: 'https://api.example.net/status',
+      url: 'https://api.example.net/status'
     }
   });
   assert.equal(apis.length, 1, 'single API configured');
@@ -40,7 +40,6 @@ test('valid.config should return api list', () => {
     headers: {}
   });
   assert.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
-
 });
 
 test('multi config', () => {
@@ -97,5 +96,4 @@ test('multi config', () => {
     }
   });
   assert.equal(two.force, true);
-
 });
