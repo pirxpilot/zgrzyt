@@ -1,9 +1,14 @@
+BIOME=node_modules/.bin/biome
+
 check: lint test
 
 lint:
-	./node_modules/.bin/jshint *.js lib test
+	$(BIOME) ci .
+
+format:
+	$(BIOME) check --apply .
 
 test:
 	node --test
 
-.PHONY: check lint test
+.PHONY: check lint format test
