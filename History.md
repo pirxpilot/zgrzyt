@@ -1,4 +1,10 @@
 
+2.2.2 / 2025-01-25
+==================
+
+ * use biome linter
+ * improve error handling in cf API
+
 2.2.1 / 2024-02-21
 ==================
 
