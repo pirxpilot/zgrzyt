@@ -1,6 +1,6 @@
-import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import test from 'node:test';
 
 import ini from 'ini';
 import prepareConfig from '../lib/config.js';
@@ -14,7 +14,11 @@ test('config should require api.url', () => {
   const apis = prepareConfig({
     cloudflare: { token: 'abc' }
   });
-  assert.equal(0, apis.length, 'Invalid config needs to render empty APIs list');
+  assert.equal(
+    0,
+    apis.length,
+    'Invalid config needs to render empty APIs list'
+  );
 });
 
 test('valid.config should return api list', () => {
@@ -22,7 +26,7 @@ test('valid.config should return api list', () => {
     cloudflare: { token: 'abc' },
     servers: ['alpha.example.com', 'beta.example.com'],
     api: {
-      url: 'https://api.example.net/status',
+      url: 'https://api.example.net/status'
     }
   });
   assert.equal(apis.length, 1, 'single API configured');
@@ -40,11 +44,13 @@ test('valid.config should return api list', () => {
     headers: {}
   });
   assert.deepEqual(api.servers, ['alpha.example.com', 'beta.example.com']);
-
 });
 
 test('multi config', () => {
-  const iniStr = readFileSync(new URL('fixtures/multi.ini', import.meta.url), 'utf-8');
+  const iniStr = readFileSync(
+    new URL('fixtures/multi.ini', import.meta.url),
+    'utf-8'
+  );
   const conf = ini.parse(iniStr);
 
   const apis = prepareConfig(conf);
@@ -97,5 +103,4 @@ test('multi config', () => {
     }
   });
   assert.equal(two.force, true);
-
 });

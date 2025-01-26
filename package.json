@@ -32,7 +32,7 @@
     "sprintfjs": "^1.2.16"
   },
   "devDependencies": {
-    "@pirxpilot/jshint": "^3.0.0"
+    "@biomejs/biome": "^1.9.4"
   },
   "scripts": {
     "test": "make check"
