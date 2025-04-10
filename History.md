@@ -1,4 +1,11 @@
 
+2.2.3 / 2025-04-10
+==================
+
+ * use `import` to read `package.json`
+ * modernize fetch timeout handling
+ * add biome config
+
 2.2.2 / 2025-01-25
 ==================
 
