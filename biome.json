@@ -1,16 +1,19 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "vcs": {
+    "enabled": true,
+    "clientKind": "git",
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true,
-    "ignore": [
-      "package.json"
-    ]
+    "ignoreUnknown": true
   },
   "formatter": {
     "enabled": true,
@@ -25,30 +28,23 @@
   },
   "json": {
     "formatter": {
-      "enabled": false
+      "expand": "always"
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
       "correctness": {
-        "noUndeclaredVariables": "error",
-        "noUnusedVariables": "error"
+        "noUndeclaredVariables": "error"
       },
       "complexity": {
-        "noForEach": "off",
-        "useArrowFunction": "off",
-        "useLiteralKeys": "off"
+        "noForEach": "off"
       },
       "style": {
-        "useTemplate": "off"
-      },
-      "performance": {
-        "noDelete": "off"
-      },
-      "suspicious": {
-        "noAssignInExpressions": "off"
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useNumberNamespace": "error",
+        "useSingleVarDeclarator": "error"
       }
     }
   }
