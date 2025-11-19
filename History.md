@@ -1,4 +1,11 @@
 
+2.3.0 / 2025-11-19
+==================
+
+ * add support for updating `proxied` setting for each API
+ * stop displaying IP4 address in reports
+ * clean up exports
+
 2.2.4 / 2025-10-03
 ==================
 
