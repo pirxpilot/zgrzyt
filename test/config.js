@@ -33,6 +33,7 @@ test('valid.config should return api list', () => {
   const [api] = apis;
   assert.deepEqual(api.api, {
     url: 'https://api.example.net/status',
+    proxied: undefined,
     timeout: 250,
     retry: 2,
     ipv4: true,
@@ -59,6 +60,7 @@ test('multi config', () => {
   assert.deepEqual(d.servers, ['a.example.com', 'b.example.com']);
   assert.deepEqual(d.api, {
     url: 'https://api.example.org',
+    proxied: undefined,
     timeout: 350,
     retry: 3,
     ipv4: true,
@@ -73,6 +75,7 @@ test('multi config', () => {
   assert.deepEqual(one.servers, ['a.example.com', 'b.example.com']);
   assert.deepEqual(one.api, {
     url: 'https://one.example.com/status',
+    proxied: true,
     timeout: 250,
     retry: 4,
     ipv4: true,
@@ -89,6 +92,7 @@ test('multi config', () => {
   assert.deepEqual(two.servers, ['a.example.net', 'b.example.net']);
   assert.deepEqual(two.api, {
     url: 'https://two.example.net',
+    proxied: undefined,
     timeout: 250,
     retry: 3,
     ipv4: true,

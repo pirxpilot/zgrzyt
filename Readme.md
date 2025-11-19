@@ -49,6 +49,7 @@ timeout=250        ; optional, in millis
 retry=2            ; optional, by default zgrzyt retries 2 times before assuming API endpoint is down 
 domain=example.net ; optional, domain for which zgrzyt will update DNS record
 method=HEAD        ; optional, HTTP method used by zgrzyt
+proxied=treue      ; optional, by default zgrzyt preserves Cloudflare proxy status when updating DNS record
 ```
 
 If `api.domain` is not specified its value is deduced from `api.url`.
